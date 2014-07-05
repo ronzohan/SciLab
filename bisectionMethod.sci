@@ -40,9 +40,9 @@ function bisectionMethod(funExp,x_lower,x_upper)
         end,
         x = x_lower;
         y = x_upper;
-end
-disp(midpoint,"Answer");
         end
+        disp(midpoint,"Answer");
+end
 endfunction;
 
 function [isValid] = isValid(funExp,x_lower,x_upper)
