@@ -11,8 +11,8 @@ function bisectionMethod(funExp,x_lower,x_upper)
     y = x_upper;
     midpoint = y;
     
-    if (xAns) then
-    end
+    if (isValid(funExp,x_lower,x_upper) == 1) then
+    
 while (1) //loop infinitely until break is found
 //-----------------------
     midpoint = y;
@@ -20,7 +20,7 @@ while (1) //loop infinitely until break is found
     x_temp = x;
     x=y;
     yAns = evstr(funExp);
-    x = x_temp;*/  
+    x = x_temp; 
 //-----------------------
 //check percentError
     percentError = ((midpoint-x)/midpoint)*100 //calculate percent error
@@ -44,8 +44,18 @@ while (1) //loop infinitely until break is found
   
 end
 disp(midpoint,"Answer");
+        end
+ 
 endfunction;
 
-
-
-
+function [isValid] = isValid(funExp,x_lower,x_upper)
+    x = x_lower;
+    x_lower = evstr(funExp);
+    x = x_upper;
+    x_upper = evstr(funExp);
+    if (x_lower * x_upper) > 0 then
+        isValid = 0;
+    else
+        isValid = 1;
+    end
+endfunction;
