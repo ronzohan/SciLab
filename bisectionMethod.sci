@@ -8,22 +8,19 @@ function bisectionMethod(funExp,x_lower,x_upper)
         x_upper = x_lower;
         x_lower = x_temp;
     end
+
     x = x_lower;
     y = x_upper;
     midpoint = y;
     
- if (isValid(funExp,x_lower,x_upper) == 1) then
+ 
     while (1) //loop infinitely until break is found
     //-----------------------
         midpoint = y;
         xAns = evstr(funExp);
-        x_temp = x;
-        x=y;
-        yAns = evstr(funExp);
-        x = x_temp; 
-    //-----------------------
     //check percentError
-        percentError = ((midpoint-x)/midpoint)*100 //calculate percent error
+        percentError = ((midpoint-x)/midpoint)*100; //calculate percent error
+         
         if percentError <= allowedPercentError then
             break;
         end
@@ -33,7 +30,12 @@ function bisectionMethod(funExp,x_lower,x_upper)
         x_temp = x;
         x=midpoint;
         midpointAns = evstr(funExp);
+        x = x_temp;
     //------------------------
+        if xAns == 0 then
+            midpoint = x;
+            break;
+        end
         if (xAns * midpointAns)<0  then
             x_upper = midpoint;
         else 
@@ -41,21 +43,8 @@ function bisectionMethod(funExp,x_lower,x_upper)
         end,
         x = x_lower;
         y = x_upper;
-        end
-        disp(midpoint,"Answer");
-else
-        disp("Cannot find root");
-end
-endfunction;
-
-function [isValid] = isValid(funExp,x_lower,x_upper) //checks if the limits are valid, returns 1 if valid
-    x = x_lower;
-    x_lower = evstr(funExp);
-    x = x_upper;
-    x_upper = evstr(funExp);
-    if (x_lower * x_upper) > 0 then
-        isValid = 0;
-    else
-        isValid = 1;
+      
+        
     end
+    disp(midpoint,"Answer");
 endfunction;
