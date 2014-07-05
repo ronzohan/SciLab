@@ -1,4 +1,5 @@
 function bisectionMethod(funExp,x_lower,x_upper)
+    allowedPercentError = 0.0005; //allowed percent error
     percentError = 100; //percent error
     x_temp = 0; //temporary storage for x
 
@@ -23,7 +24,7 @@ function bisectionMethod(funExp,x_lower,x_upper)
     //-----------------------
     //check percentError
         percentError = ((midpoint-x)/midpoint)*100 //calculate percent error
-        if percentError <= 0.0005 then
+        if percentError <= allowedPercentError then
             break;
         end
     //------------------------    
@@ -42,10 +43,12 @@ function bisectionMethod(funExp,x_lower,x_upper)
         y = x_upper;
         end
         disp(midpoint,"Answer");
+else
+        disp("Cannot find root");
 end
 endfunction;
 
-function [isValid] = isValid(funExp,x_lower,x_upper)
+function [isValid] = isValid(funExp,x_lower,x_upper) //checks if the limits are valid, returns 1 if valid
     x = x_lower;
     x_lower = evstr(funExp);
     x = x_upper;
