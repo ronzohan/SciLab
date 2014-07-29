@@ -2,7 +2,7 @@ function root = bracketing(func,method,xl,xu,error,maxiter)    //method 1-bisect
     
     disp("Iterations X.lower    X.upper    Root      f(X L )    (X R )    Approximate Error ");
     xr_old = 0;
-    for i=1:maxiter
+    for i=0:maxiter
         x = xu;
         fxu = evstr(func); //Evaluate the function using the value at the right for the [xLeft,xRight] pair
         x = xl;
