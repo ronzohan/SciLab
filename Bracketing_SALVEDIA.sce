@@ -30,7 +30,7 @@ function root = bracketing(func,method,xl,xu,error,maxiter)    //method 1-bisect
         end
         
         
-        
+         
         
         if (fxu * fxl > 0)  disp("Change initial values. Root is not enclose");break;end
         
@@ -40,11 +40,13 @@ function root = bracketing(func,method,xl,xu,error,maxiter)    //method 1-bisect
         
         if (method == 2 & fxu - fxl == 0) disp("Division by zero.");break;end 
         
-        
+        if (approximateError <= ea) break;end
         
     end
     
     if (i == maxiter) disp("Change Initial Values. Slowly Converges"); end
+    s = sprintf("#Iterations: %d  Root = %f\n",i,xr);
+    disp(s);
     root = xr
     
 endfunction
