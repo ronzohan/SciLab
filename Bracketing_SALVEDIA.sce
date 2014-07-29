@@ -1,6 +1,6 @@
 function root = bracketing(func,method,xl,xu,error,maxiter)    //method 1-bisection 2-regula falsi
     
-    disp("Iterations X.lower    X.upper    Root      f(X L )    (X R )    Approximate Error ");
+    disp("Iterations X.lower    X.upper    Root      f(X L )    f(X R )    Approximate Error ");
     xr_old = 0;
     for i=0:maxiter
         x = xu;
@@ -19,6 +19,10 @@ function root = bracketing(func,method,xl,xu,error,maxiter)    //method 1-bisect
         
         approximateError = abs(((xr-xr_old)/xr)*100); //calculate percent error
         xr_old = xr;
+        
+        s = sprintf('%d        %f   %f   %f   %f   %f   %f',i,xl,xu,xr,fxl,fxr, approximateError);
+        disp(s);
+        
         if (fxl* fxr)<0  then
             xu = xr;
         else 
@@ -26,8 +30,7 @@ function root = bracketing(func,method,xl,xu,error,maxiter)    //method 1-bisect
         end
         
         
-        s = sprintf('%d        %f   %f   %f   %f   %f   %f',i,xl,xu,xr,fxl,fxr, approximateError);
-        disp(s);
+        
         
         if (fxu * fxl > 0)  disp("Change initial values. Root is not enclose");break;end
         
@@ -41,7 +44,7 @@ function root = bracketing(func,method,xl,xu,error,maxiter)    //method 1-bisect
         
     end
     
-    if (i == maxiter) disp("Change Initial Values.Slowly Converges"); end
+    if (i == maxiter) disp("Change Initial Values. Slowly Converges"); end
     root = xr
     
 endfunction
