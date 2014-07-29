@@ -1,4 +1,4 @@
-function root = bracketing(func,method,xl,xu,error,maxiter)    //method 1-bisection 2-regula falsi
+function root = bracketing(func,method,xl,xu,ea,maxiter)    //method 1-bisection 2-regula falsi
     
     disp("Iterations X.lower    X.upper    Root      f(X L )    f(X R )    Approximate Error ");
     xr_old = 0;
