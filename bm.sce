@@ -13,6 +13,7 @@ for i=1:1:imax
 
 end
 //sample2
+//smple3
 s=sprintf('\n Root= %f #Iterations = %d \n', xr, i); 
 disp(s);
     
