@@ -19,6 +19,7 @@ for i=1:n
     end
 end
 //sample here
+//sample4
 //note, disp is LIFO(Last In,First Out) in its arguments
 disp(even_nos,"List of even nos.")
 disp(even_sum,"Sum of even numbers:")
