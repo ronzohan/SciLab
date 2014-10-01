@@ -12,7 +12,7 @@ for i=1:1:imax
     if (ea < es) break; end
 
 end
-
+//sample2
 s=sprintf('\n Root= %f #Iterations = %d \n', xr, i); 
 disp(s);
     
