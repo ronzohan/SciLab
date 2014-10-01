@@ -18,7 +18,7 @@ for i=1:n
         odd_sum = odd_sum + x(i);  //calc the partial sum of even nos.
     end
 end
-
+//sample here
 //note, disp is LIFO(Last In,First Out) in its arguments
 disp(even_nos,"List of even nos.")
 disp(even_sum,"Sum of even numbers:")
